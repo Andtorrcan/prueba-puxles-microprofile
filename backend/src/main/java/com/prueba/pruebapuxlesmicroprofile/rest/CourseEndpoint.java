@@ -16,10 +16,30 @@ import javax.ws.rs.core.Response;
 import com.prueba.pruebapuxlesmicroprofile.dao.CourseDAO;
 import com.prueba.pruebapuxlesmicroprofile.model.Course;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.Contact;
+import io.swagger.annotations.Info;
+import io.swagger.annotations.SwaggerDefinition;
+
 @ApplicationScoped
 @Path("/course")
+@Api(value = "/course", tags = "course")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
+@SwaggerDefinition (
+info = @Info (
+        title = "Talleres",
+        description = "CRUD talleres",
+        version = "1.0.0",
+        contact = @Contact (
+            name = "Andres Torres",
+            email = "andtorrcan94@gmail.com"
+        )
+    ),
+    host = "localhost",
+    basePath = "/",
+    schemes = {SwaggerDefinition.Scheme.HTTP, SwaggerDefinition.Scheme.HTTPS}
+)
 public class CourseEndpoint {
 
 	@Inject
