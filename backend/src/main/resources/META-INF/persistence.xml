@@ -9,6 +9,7 @@
 		<provider>org.hibernate.ogm.jpa.HibernateOgmPersistence</provider>
 		<class>com.prueba.pruebapuxlesmicroprofile.model.Hability</class>
 		<class>com.prueba.pruebapuxlesmicroprofile.model.Course</class>
+		<class>com.prueba.pruebapuxlesmicroprofile.model.Person</class>
 		<properties>
 			<property name="hibernate.ogm.datastore.provider"
 				value="mongodb" />
