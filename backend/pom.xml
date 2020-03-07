@@ -61,13 +61,13 @@
 			<groupId>io.thorntail</groupId>
 			<artifactId>jaxrs</artifactId>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>io.thorntail</groupId>
 			<artifactId>cdi</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.hibernate.ogm</groupId>	
+			<groupId>org.hibernate.ogm</groupId>
 			<artifactId>hibernate-ogm-mongodb</artifactId>
 			<version>5.0.0.Final</version>
 		</dependency>
@@ -75,6 +75,10 @@
 			<groupId>org.mongodb</groupId>
 			<artifactId>mongo-java-driver</artifactId>
 			<version>3.8.0</version>
+		</dependency>
+		<dependency>
+			<groupId>io.thorntail</groupId>
+			<artifactId>swagger-webapp</artifactId>
 		</dependency>
 	</dependencies>
 </project>
