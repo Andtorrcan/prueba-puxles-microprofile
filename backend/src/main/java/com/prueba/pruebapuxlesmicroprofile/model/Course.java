@@ -17,6 +17,9 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 @Entity
 @NamedQuery(name = "Course.findAll", query = "SELECT c FROM Course c")
 public class Course {
+	/**
+	 * Id de la tabla (no confundir con documento de la persona)
+	 */
 	@Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
@@ -27,18 +30,20 @@ public class Course {
 	@JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ss")
     private Date date;
     /**
-     * La definí como entero
+     * Calificación- La definí como entero
      */
     private int qualification;
     /**
      * Lugar, lo tome como una ubicación fisica
      */
     private String place;
-    
+    /**
+     * Lista de habilidades
+     */
     @OneToMany(targetEntity=Hability.class, mappedBy="course", fetch=FetchType.EAGER)
     private List<Hability> habilities_list;
     
-    
+    //----getters & Setters
 	public String getId() {
 		return id;
 	}
