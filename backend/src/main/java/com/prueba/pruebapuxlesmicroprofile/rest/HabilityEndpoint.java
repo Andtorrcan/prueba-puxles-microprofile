@@ -14,6 +14,9 @@ import com.prueba.pruebapuxlesmicroprofile.model.Hability;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.Contact;
+import io.swagger.annotations.Info;
+import io.swagger.annotations.SwaggerDefinition;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.PATCH;
@@ -28,6 +31,20 @@ import javax.ws.rs.core.MediaType;
 @Api(value = "/hability", tags = "hability")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
+@SwaggerDefinition (
+info = @Info (
+        title = "Servicio de habilidades",
+        description = "CRUD habilidades",
+        version = "1.0.0",
+        contact = @Contact (
+            name = "Andres Torres",
+            email = "andtorrcan94@gmail.com"
+        )
+    ),
+    host = "localhost",
+    basePath = "/api/v1",
+    schemes = {SwaggerDefinition.Scheme.HTTP}
+)
 public class HabilityEndpoint {
 
 	@Inject
