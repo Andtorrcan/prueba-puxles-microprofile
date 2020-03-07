@@ -33,7 +33,7 @@ import javax.ws.rs.core.MediaType;
 @Consumes(MediaType.APPLICATION_JSON)
 @SwaggerDefinition (
 info = @Info (
-        title = "Servicio de habilidades",
+        title = "Habilidades",
         description = "CRUD habilidades",
         version = "1.0.0",
         contact = @Contact (
@@ -42,8 +42,8 @@ info = @Info (
         )
     ),
     host = "localhost",
-    basePath = "/api/v1",
-    schemes = {SwaggerDefinition.Scheme.HTTP}
+    basePath = "/",
+    schemes = {SwaggerDefinition.Scheme.HTTP, SwaggerDefinition.Scheme.HTTPS}
 )
 public class HabilityEndpoint {
 
