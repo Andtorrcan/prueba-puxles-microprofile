@@ -34,10 +34,8 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
-
 	<build>
 		<finalName>${project.artifactId}</finalName>
-
 		<plugins>
 			<plugin>
 				<groupId>io.thorntail</groupId>
@@ -54,9 +52,7 @@
 			</plugin>
 		</plugins>
 	</build>
-
 	<dependencies>
-
 		<dependency>
 			<groupId>io.thorntail</groupId>
 			<artifactId>jaxrs</artifactId>
