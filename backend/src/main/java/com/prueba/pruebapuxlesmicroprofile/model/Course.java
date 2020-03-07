@@ -18,7 +18,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 @NamedQuery(name = "Course.findAll", query = "SELECT c FROM Course c")
 public class Course {
 	/**
-	 * Id de la tabla (no confundir con documento de la persona)
+	 * Id del documento
 	 */
 	@Id
     @GeneratedValue(generator = "uuid")
