@@ -1,4 +1,170 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/** Variables de color */
+
+$color-primary: #786adb;
+$color-secundary: #3a2491;
+
+/** ------------------ */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+
+/** Tamaño contenedor */
+
+.full-width {
+    width: 100% !important;
+}
+
+.full-height {
+    height: 100% !important;
+}
+
+.full-width-viewport {
+    width: 100vw !important;
+}
+
+.full-height-viewport {
+    height: 100vw !important;
+}
+
+
+/** Alineamiento contenedor */
+
+.center-horizontal {
+    display: flex !important;
+    justify-content: center !important;
+}
+
+.center-vertical {
+    display: flex !important;
+    align-items: center !important;
+}
+
+.center-horizontal-vertical {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+
+/** Direccion del contenido */
+
+.flexbox-row {
+    display: flex !important;
+    flex-direction: row !important;
+}
+
+.flexbox-col {
+    display: flex;
+    flex-direction: column !important;
+}
+
+.flexbox-wrap {
+    display: flex !important;
+    flex-wrap: wrap;
+}
+
+.flexbox-no-wrap {
+    display: flex !important;
+    flex-wrap: nowrap;
+}
+
+
+/** Alineamiento texto */
+
+.text-center {
+    text-align: center !important;
+}
+
+#text-center {
+    text-align: center !important;
+}
+
+.text-right {
+    text-align: right !important;
+}
+
+#text-right {
+    text-align: right !important;
+}
+
+.text-left {
+    text-align: left !important;
+}
+
+#text-left {
+    text-align: left !important;
+}
+
+
+/** Sidenav de la app */
+
+.example-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.example-is-mobile .example-toolbar {
+    position: fixed;
+    z-index: 2;
+}
+
+.example-sidenav-container {
+    flex: 1;
+}
+
+.example-is-mobile .example-sidenav-container {
+    flex: 1 0 auto;
+}
+
+.mat-toolbar-single-row {
+    height: 56px !important;
+}
+
+.mat-toolbar.mat-primary {
+    background: rgba(73, 155, 234, 1);
+    background: -moz-linear-gradient(left, rgba(73, 155, 234, 1) 0%, rgba(32, 124, 229, 1) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(73, 155, 234, 1)), color-stop(100%, rgba(32, 124, 229, 1)));
+    background: -webkit-linear-gradient(left, rgba(73, 155, 234, 1) 0%, rgba(32, 124, 229, 1) 100%);
+    background: -o-linear-gradient(left, rgba(73, 155, 234, 1) 0%, rgba(32, 124, 229, 1) 100%);
+    background: -ms-linear-gradient(left, rgba(73, 155, 234, 1) 0%, rgba(32, 124, 229, 1) 100%);
+    background: linear-gradient(to right, rgba(73, 155, 234, 1) 0%, rgba(32, 124, 229, 1) 100%);
+}
+
+
+/**  Titulos */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-bottom: 10px !important;
+}
+
+
+/** Margenes y padding */
+
+.with-out-margin {
+    margin: 0px !important;
+}
+
+.with-out-padding {
+    padding: 0px !important;
+}
