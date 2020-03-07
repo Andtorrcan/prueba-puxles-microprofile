@@ -7,11 +7,12 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.GenericGenerator;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @NamedQuery(name = "Course.findAll", query = "SELECT c FROM Course c")
@@ -20,12 +21,18 @@ public class Course {
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
+	/**
+	 * Fecha del taller
+	 */
+	@JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ss")
     private Date date;
     /**
      * La definí como entero
      */
     private int qualification;
-    
+    /**
+     * Lugar, lo tome como una ubicación fisica
+     */
     private String place;
     
     @OneToMany(targetEntity=Hability.class, mappedBy="course", fetch=FetchType.EAGER)
