@@ -13,7 +13,7 @@ import javax.persistence.NamedQuery;
 @NamedQuery(name = "Hability.findAll", query = "SELECT t FROM Hability t")
 public class Hability {
 	/**
-	 * Identificador de la habilidad
+	 * Id del documento
 	 */
     @Id
     @GeneratedValue(generator = "uuid")
