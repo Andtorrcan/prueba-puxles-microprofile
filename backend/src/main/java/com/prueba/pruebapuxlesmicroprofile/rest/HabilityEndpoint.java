@@ -16,8 +16,8 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 import javax.ws.rs.GET;
-import javax.ws.rs.PATCH;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Produces;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -54,7 +54,7 @@ public class HabilityEndpoint {
 		return Response.status(Response.Status.CREATED).build();
 	}
 
-	@PATCH
+	@PUT
 	@Path("{id}")
 	@ApiOperation(value = "Actualizar habilidad", response = Response.class)
 	public Response update(@PathParam("id") String id, Hability hab) {
