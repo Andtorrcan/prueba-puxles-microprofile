@@ -1,5 +1,7 @@
 package com.prueba.pruebapuxlesmicroprofile.rest;
 
+import java.util.List;
+
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
@@ -17,47 +19,33 @@ import com.prueba.pruebapuxlesmicroprofile.dao.CourseDAO;
 import com.prueba.pruebapuxlesmicroprofile.model.Course;
 
 import io.swagger.annotations.Api;
-import io.swagger.annotations.Contact;
-import io.swagger.annotations.Info;
-import io.swagger.annotations.SwaggerDefinition;
-
+import io.swagger.annotations.ApiOperation;
 @ApplicationScoped
 @Path("/course")
 @Api(value = "/course", tags = "course")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-@SwaggerDefinition (
-info = @Info (
-        title = "Talleres",
-        description = "CRUD talleres",
-        version = "1.0.0",
-        contact = @Contact (
-            name = "Andres Torres",
-            email = "andtorrcan94@gmail.com"
-        )
-    ),
-    host = "localhost",
-    basePath = "/",
-    schemes = {SwaggerDefinition.Scheme.HTTP, SwaggerDefinition.Scheme.HTTPS}
-)
 public class CourseEndpoint {
 
 	@Inject
     private CourseDAO courseDao;
 
     @GET
+    @ApiOperation(value = "Trae la lista de talleres", response = List.class)
     public Response getAll() {
         return Response.ok(courseDao.getAll()).build();
     }
     
     @GET
     @Path("{id}")
-    public Response getHability(@PathParam("id") String id) {
+    @ApiOperation(value = "Trae un taller por ID", response = List.class)
+    public Response getCourse(@PathParam("id") String id) {
         Course course = courseDao.findById(id);
         return Response.ok(course).build();
     }
     
     @POST
+    @ApiOperation(value = "Crea un taller", response = Response.class)
     public Response create(Course course) {
         courseDao.create(course);
         return Response.ok().build();
@@ -65,6 +53,7 @@ public class CourseEndpoint {
     
     @PATCH
     @Path("{id}")
+    @ApiOperation(value = "Actualiza un taller, incluyendo las habilidades", response = Response.class)
     public Response update(@PathParam("id") String id, Course course) {
     	Course updateTodo = courseDao.findById(id);
         updateTodo.setDate(course.getDate());
@@ -76,6 +65,7 @@ public class CourseEndpoint {
     
     @DELETE
     @Path("{id}")
+    @ApiOperation(value = "Elimina un taller por ID", response = Response.class)
     public Response delete(@PathParam("id") String id) {
     	Course getCourse = courseDao.findById(id);
         courseDao.delete(getCourse);
