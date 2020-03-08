@@ -3,13 +3,9 @@ package com.prueba.pruebapuxlesmicroprofile.model;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
@@ -43,15 +39,9 @@ public class Course {
     /**
      * Lista de habilidades
      */
-    @Column(name="habilities_list")
-    @OneToMany(targetEntity=Hability.class, mappedBy="course", fetch=FetchType.EAGER)
+    @OneToMany
     private List<Hability> habilities_list;
-    /**
-     * Relación con colección persona
-     */
-    @ManyToOne
-    @JoinColumn(name = "person_id_fk", nullable = false, updatable = true)
-    private Person person;
+
     //----getters & Setters
 	public String getId() {
 		return id;
@@ -84,6 +74,7 @@ public class Course {
 	public void setHabilities_list(List<Hability> habilities_list) {
 		this.habilities_list = habilities_list;
 	}
+
 	@Override
 	public String toString() {
 		return "Course [id=" + id + ", date=" + date + ", qualification=" + qualification + ", place=" + place

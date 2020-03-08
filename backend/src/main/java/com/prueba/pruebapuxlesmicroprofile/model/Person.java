@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
@@ -46,8 +45,7 @@ public class Person {
 	/**
 	 * Lista de talleres
 	 */
-	@Column(name="courses_list")
-    @OneToMany(targetEntity=Course.class, mappedBy="person", fetch=FetchType.EAGER)
+    @OneToMany()
     private List<Course> courses_list;
 	
 	//----Getters & Setters

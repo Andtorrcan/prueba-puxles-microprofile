@@ -27,7 +27,6 @@ export class HttpConfigInterceptor implements HttpInterceptor {
     request = request.clone({
       url: 'http://localhost:8080/' + request.url
     });
-    console.log(request);
     return next.handle(request).pipe(
       map((event: HttpEvent<any>) => {
         return event;
