@@ -3,15 +3,20 @@
         <span>Microprofile - Angular</span>
     </mat-toolbar-row>
 </mat-toolbar>
-<div class="row" style="margin-top: 15px;">
-    <div class="col-12">
-        <nav class="nav">
-            <a class="tab" [routerLink]="['/persons']" [routerLinkActive]="['is-active']">Personas</a>
-            <a class="" [routerLink]="['/courses']" [routerLinkActive]="['is-active']">Talleres</a>
-            <a class="" [routerLink]="['/habilities']" [routerLinkActive]="['is-active']">Habilidades</a>
-        </nav>
-    </div>
-    <div class="col-12">
-        <router-outlet></router-outlet>
+<div class="container">
+    <div class="row" style="margin-top: 15px;">
+        <div class="col-12">
+            <nav class="nav">
+                <a class="tab-menu-option" [routerLink]="['/persons']" [routerLinkActive]="['is-active']">Personas</a>
+                <a class="tab-menu-option" [routerLink]="['/courses']" [routerLinkActive]="['is-active']">Talleres</a>
+                <a class="tab-menu-option" [routerLink]="['/habilities']" [routerLinkActive]="['is-active']">Habilidades</a>
+            </nav>
+        </div>
+        <div class="col-12">
+            <div class="full-width container-components">
+                <router-outlet></router-outlet>
+            </div>
+
+        </div>
     </div>
 </div>

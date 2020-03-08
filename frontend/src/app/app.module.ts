@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -15,6 +15,7 @@ import { HttpConfigInterceptor } from './services/interceptor/interceptor.servic
   imports: [
     BrowserModule,
     AppRoutingModule,
+    SweetAlert2Module.forRoot(),
     HttpClientModule,
     BrowserAnimationsModule
   ],

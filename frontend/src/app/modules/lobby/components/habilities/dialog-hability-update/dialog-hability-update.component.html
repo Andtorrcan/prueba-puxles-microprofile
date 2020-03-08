@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>Actualizar</h1>
+<hr>
+<div mat-dialog-content>
+    <mat-form-field class="full-width">
+        <mat-label>Nombre</mat-label>
+        <input [formControl]="description" matInput placeholder="Placeholder">
+        <mat-error *ngIf="description.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Cancelar</button>
+    <button mat-raised-button *ngIf="!preload_update" color="primary" [disabled]="!(description.valid)" (click)="save()" cdkFocusInitial>Guardar</button>
+    <button mat-button *ngIf="preload_update"><img src="../../../../../assets/loading.gif" height="36px" alt=""></button>
+</div>

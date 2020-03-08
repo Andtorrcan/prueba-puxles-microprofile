@@ -2,7 +2,6 @@ import { Injectable } from "@angular/core";
 import {
   HttpInterceptor,
   HttpRequest,
-  HttpResponse,
   HttpHandler,
   HttpEvent,
   HttpErrorResponse
@@ -26,9 +25,9 @@ export class HttpConfigInterceptor implements HttpInterceptor {
       });
     }
     request = request.clone({
-      url: 'http:localhost:8080/' + request.url
+      url: 'http://localhost:8080/' + request.url
     });
-    //console.log(request);
+    console.log(request);
     return next.handle(request).pipe(
       map((event: HttpEvent<any>) => {
         return event;

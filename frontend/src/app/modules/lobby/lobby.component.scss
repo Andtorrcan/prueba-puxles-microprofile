@@ -1,0 +1,15 @@
+@import '../../../styles.scss';
+.tab-menu-option {
+    padding: 10px 20px !important;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border: solid 1px lightgray;
+}
+
+.container-components {
+    padding: 10px 20px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: solid 1px lightgray;
+}
