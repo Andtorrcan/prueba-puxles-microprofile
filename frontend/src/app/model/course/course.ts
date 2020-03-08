@@ -6,6 +6,7 @@ export class Course{
     public place: string;
     public qualification: number;
     public habilities_list: Hability[];
+    public name: string;
 
     constructor(){}
 }
