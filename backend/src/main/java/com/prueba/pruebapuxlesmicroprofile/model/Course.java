@@ -24,6 +24,10 @@ public class Course {
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
 	/**
+	 * Nombre
+	 */
+	private String name;
+	/**
 	 * Fecha del taller
 	 */
 	@JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ss")
@@ -74,10 +78,12 @@ public class Course {
 	public void setHabilities_list(List<Hability> habilities_list) {
 		this.habilities_list = habilities_list;
 	}
-
-	@Override
-	public String toString() {
-		return "Course [id=" + id + ", date=" + date + ", qualification=" + qualification + ", place=" + place
-				+ ", habilities_list=" + habilities_list + "]";
+	public String getName() {
+		return name;
 	}
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	
 }

@@ -85,9 +85,10 @@ public class Person {
 	public void setCourses_list(List<Course> courses_list) {
 		this.courses_list = courses_list;
 	}
-	@Override
-	public String toString() {
-		return "Person [name=" + name + ", lastname=" + lastname + ", address=" + address + ", telephone=" + telephone
-				+ ", correo=" + correo + ", courses_list=" + courses_list + "]";
+	public String getId() {
+		return id;
 	}
+	public void setId(String id) {
+		this.id = id;
+	}	
 }
