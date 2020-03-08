@@ -15,6 +15,7 @@ import { DatePipe } from '@angular/common';
 })
 export class DialogCourseCreateComponent implements OnInit {
   //----Datos del taller
+  public name: FormControl;
   public place: FormControl;
   public qualification: FormControl;
   public date: FormControl;
@@ -32,6 +33,7 @@ export class DialogCourseCreateComponent implements OnInit {
     private courseService: CourseService,
     private datePipe: DatePipe,
     public dialogRef: MatDialogRef<DialogCourseCreateComponent>,) {
+      this.name = new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]);
     this.place = new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]);
     this.qualification = new FormControl(1, [Validators.required, Validators.min(1), Validators.max(5)]);
     this.habilities_selected = new FormControl('', Validators.required);
@@ -77,6 +79,7 @@ export class DialogCourseCreateComponent implements OnInit {
       course.place = this.place.value;
       course.habilities_list = this.habilities_selected.value;
       course.qualification = 0;
+      course.name = this.name.value;
       console.log(course);
       this.courseService.create(course).subscribe(res => {
         console.log(res);
@@ -95,7 +98,18 @@ export class DialogCourseCreateComponent implements OnInit {
       });
     }
   }
-
+  /**
+   * ERROR de nombre
+   */
+  getErrorMessageName() {
+    if (this.name.hasError('required')) {
+      return 'Debes ingresar un valor';
+    } else if (this.name.hasError('minlength')) {
+      return 'Min 3 caracteres';
+    } else if (this.name.hasError('maxlength')) {
+      return 'Max 50 caracteres';
+    }
+  }
   /**
    * ERROR de lugar
    */

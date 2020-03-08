@@ -17,7 +17,7 @@ import { DialogCourseUpdateComponent } from './dialog-course-update/dialog-cours
 })
 export class CoursesComponent implements OnInit {
   //----Tabla
-  displayedColumns: string[] = ['id', 'date','place','habilities_list', 'actions'];
+  displayedColumns: string[] = ['id', 'name','date','place','habilities_list', 'actions'];
   dataSource: MatTableDataSource<Course>;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
@@ -39,6 +39,7 @@ export class CoursesComponent implements OnInit {
   getCourses(){
     this.courseService.getCourses().subscribe(res => {
       if (res.status == 200) {
+        console.log(res);
         this.dataSource = new MatTableDataSource(res.body.sort((a,b) => a.date.localeCompare(b.date)));
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
@@ -48,7 +49,7 @@ export class CoursesComponent implements OnInit {
     }, err => {
       console.log(err);
       Swal.fire({
-        title: 'No se pudieron obtener las habilidades',
+        title: 'No se pudieron obtener los talleres',
         icon: 'error'
       });
     });

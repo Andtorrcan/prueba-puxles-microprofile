@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, Validators, Form } from '@angular/forms';
 import { Hability } from 'src/app/model/hability/hability';
 import { HabilityService } from 'src/app/services/hability/hability.service';
 import { CourseService } from 'src/app/services/course/course.service';
@@ -18,6 +18,7 @@ export class DialogCourseUpdateComponent implements OnInit {
   public place: FormControl;
   public qualification: FormControl;
   public date: FormControl;
+  public name: FormControl;
   public habilities_list: Hability[];
   public habilities_selected: FormControl;
   public hour_selected: FormControl;
@@ -35,6 +36,7 @@ export class DialogCourseUpdateComponent implements OnInit {
     public dialogRef: MatDialogRef<DialogCourseUpdateComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Course) {
     console.log(this.data);
+    this.name = new FormControl(this.data.name, [Validators.required, Validators.minLength(3), Validators.maxLength(50)]);
     this.place = new FormControl(this.data.place, [Validators.required, Validators.minLength(3), Validators.maxLength(50)]);
     this.qualification = new FormControl(1, [Validators.required, Validators.min(1), Validators.max(5)]);
     this.habilities_selected = new FormControl('', Validators.required);
@@ -93,6 +95,8 @@ export class DialogCourseUpdateComponent implements OnInit {
       }
       course.habilities_list = habs;
       course.qualification = 0;
+      course.name = this.name.value;
+      console.log(course);
       this.courseService.update(this.data.id, course).subscribe(res => {
         Swal.fire({
           title: 'Taller actualizado',
@@ -110,6 +114,18 @@ export class DialogCourseUpdateComponent implements OnInit {
     }
   }
 
+    /**
+   * ERROR de nombre
+   */
+  getErrorMessageName() {
+    if (this.name.hasError('required')) {
+      return 'Debes ingresar un valor';
+    } else if (this.name.hasError('minlength')) {
+      return 'Min 3 caracteres';
+    } else if (this.name.hasError('maxlength')) {
+      return 'Max 50 caracteres';
+    }
+  }
   /**
    * ERROR de lugar
    */

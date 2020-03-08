@@ -21,6 +21,10 @@
                     <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
                     <td mat-cell *matCellDef="let row; let i = index" id="text-center"> {{i+1}} </td>
                 </ng-container>
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
+                    <td mat-cell *matCellDef="let row" id="text-center"> {{row.name}} </td>
+                </ng-container>
                 <ng-container matColumnDef="date">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha </th>
                     <td mat-cell *matCellDef="let row" id="text-center"> {{row.date | date: 'medium'}} </td>

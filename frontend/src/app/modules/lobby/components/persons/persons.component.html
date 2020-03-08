@@ -1,1 +1,63 @@
-<p>persons works!</p>
+<div class="row justify-content-center">
+    <div class="col-12">
+        <h1>Lista de personas</h1>
+    </div>
+    <div class="col-6 text-left">
+
+    </div>
+    <div class="col-6 text-right">
+        <button mat-raised-button color="primary" (click)="create()">Crear</button>
+    </div>
+    <div class="col-12 text-center" *ngIf="preload_load">
+        <img src="../../../../../assets/loading.gif" height="120px" alt="">
+    </div>
+    <div class="col-12" *ngIf="!preload_load && persons_list.length > 0">
+        <div class="full-width flex-wrap flex-row center-horizontal">
+            <mat-card class="card-person mat-elevation-z3" *ngFor="let item of persons_list">
+                <div class="row" style="margin-bottom: 10px;">
+                    <div class="col-3 center-horizontal-vertical">
+                        <!--Se deja una imagen generica ya que no hay genero-->
+                        <img src="../../../../../assets/man.png" height="70px" alt="">
+                    </div>
+                    <div class="col-9 text-left">
+                        <div class="row">
+                            <div class="col-9">
+                                <h2 class="full-width" style="color:#3f51b5; margin-bottom: 5px;">{{item.name | titlecase}} {{item.lastname | titlecase}}</h2>
+                            </div>
+                            <div class="col-3 center-vertical flex-column">
+                                <button mat-button style="max-width: 30px !important; width: 30px !important; min-width: 30px !important;" (click)="update(item)" class="with-out-padding"><mat-icon style="color: rgb(65, 212, 65);">edit</mat-icon></button>
+                                <button mat-button style="max-width: 30px !important; width: 30px !important; min-width: 30px !important;" (click)="delete(item.id)" class="with-out-padding"><mat-icon style="color: rgb(255, 52, 52);">delete</mat-icon></button>
+                            </div>
+                            <div class="col-12 flex-row center-vertical" style="margin-bottom: 10px !important;">
+                                <img src="../../../../../assets/address.png" height="20px" style="margin-right: 15px;" alt=""> {{item.address}}
+                            </div>
+                            <div class="col-12 flex-row center-vertical" style="margin-bottom: 10px !important;">
+                                <img src="../../../../../assets/phone-call.png" height="20px" style="margin-right: 15px;" alt=""> {{item.telephone}}
+                            </div>
+                            <div class="col-12 flex-row center-vertical">
+                                <img src="../../../../../assets/mail.png" height="20px" style="margin-right: 15px;" alt=""> {{item.correo}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="item.courses_list != null" class="row">
+                    <div class="col-12">
+                        <h3 class="with-out-margin" style="color:#3f51b5;">Lista de talleres:</h3>
+                    </div>
+                    <div class="col-12" *ngIf="item.courses_list.length > 0">
+                        <ul>
+                            <li *ngFor="let course of item.courses_list">{{course.name}}</li>
+                        </ul>
+                    </div>
+                    <div class="col-12" *ngIf=" item.courses_list.length == 0">
+                        <label style="color: gray;"></label>Sin talleres registrados
+                    </div>
+                </div>
+            </mat-card>
+        </div>
+    </div>
+    <div class="col-12 text-center" *ngIf="!preload_load && persons_list.length == 0">
+        <h3 style="color: gray;">No hay personas registradas</h3>
+    </div>
+
+</div>

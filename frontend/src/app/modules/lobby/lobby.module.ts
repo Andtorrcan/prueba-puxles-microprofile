@@ -4,6 +4,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 /**
  * Material
  */
+import {MatStepperModule} from '@angular/material/stepper';
 import {MatCardModule} from '@angular/material/card';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -34,6 +35,8 @@ import { DialogCourseUpdateComponent } from './components/courses/dialog-course-
 import { CourseService } from 'src/app/services/course/course.service';
 import { MatNativeDateModule } from '@angular/material/core';
 import { PersonService } from 'src/app/services/person/person.service';
+import { DialogPersonCreateComponent } from './components/persons/dialog-person-create/dialog-person-create.component';
+import { DialogPersonUpdateComponent } from './components/persons/dialog-person-update/dialog-person-update.component';
 
 
 @NgModule({
@@ -45,12 +48,15 @@ import { PersonService } from 'src/app/services/person/person.service';
     DialogHabilityCreateComponent, 
     DialogHabilityUpdateComponent, 
     DialogCourseCreateComponent, 
-    DialogCourseUpdateComponent],
+    DialogCourseUpdateComponent,
+    DialogPersonCreateComponent,
+    DialogPersonUpdateComponent],
   imports: [
     CommonModule,
     FormsModule,
     SweetAlert2Module,
     MatNativeDateModule,
+    MatStepperModule,
     NgxMaterialTimepickerModule.setLocale('es-ES'),
     MatTabsModule,
     MatDatepickerModule,
@@ -77,7 +83,9 @@ import { PersonService } from 'src/app/services/person/person.service';
     DialogHabilityCreateComponent, 
     DialogHabilityUpdateComponent, 
     DialogCourseCreateComponent, 
-    DialogCourseUpdateComponent
+    DialogCourseUpdateComponent,
+    DialogPersonCreateComponent,
+    DialogPersonUpdateComponent
   ]
 })
 export class LobbyModule { }
