@@ -7,7 +7,7 @@ Backend:
   - Hibernate
   - MongDB
   - Java JDK 8
- 
+  - Swagger
  
 Para ejecutar backend: mvn thorntail:run
   
